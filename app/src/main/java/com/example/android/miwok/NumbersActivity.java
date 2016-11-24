@@ -1,13 +1,19 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
 public class NumbersActivity extends AppCompatActivity {
+
+    MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,14 @@ public class NumbersActivity extends AppCompatActivity {
         WordAdapter adapter = new WordAdapter(this, words, R.color.category_numbers);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
+                mMediaPlayer.start();
+            }
+        });
     }
 }
 
