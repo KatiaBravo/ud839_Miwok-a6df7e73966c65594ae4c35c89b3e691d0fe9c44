@@ -21,15 +21,20 @@ public class Word {
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String defaultTranslation, String miwokTranslation){
+    private int mAudioResourceId;
+
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId){
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
+
     }
 
     //Get the Default Translation of the word
@@ -47,4 +52,6 @@ public class Word {
 
     //Returns where or not there is an image for this word
     public boolean hasImage() { return mImageResourceId != NO_IMAGE_PROVIDED;}
+
+    public int getmAudioResourceId() {return mAudioResourceId;}
 }
